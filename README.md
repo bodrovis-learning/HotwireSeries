@@ -1,24 +1,5 @@
-# README
+# Серия уроков по Hotwire на YouTube
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Плейлист: https://www.youtube.com/watch?v=VuR0jASu-Wc&list=PLWlFXymvoaJ-uWJFOmWLJDbsZ8WYs6C_e
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+(c) [Ilya Krukowski](http://bodrovis.tech)
