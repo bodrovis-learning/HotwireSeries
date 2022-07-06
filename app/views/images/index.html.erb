@@ -1,0 +1,21 @@
+<h1>Images</h1>
+
+<% @images.each do |image| %>
+  <%= tag.section class: 'my-5',
+    data: {controller: 'images toast', action: 'images:copy->toast#show',
+    'images-loading-class': 'disabled', 'images-id-value': image.id} do %>
+    <%= image_tag image.url, class: 'img-thumbnail rounded d-block',
+      alt: image.title, data: {'action': 'click->images#getUrl',
+      'images-target': 'image'} %>
+  <% end %>
+<% end %>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="copyToast" class="toast">
+    <div class="toast-header">
+      <strong class="me-auto">Hey!</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+    </div>
+    <div class="toast-body">Text</div>
+  </div>
+</div>
