@@ -70,6 +70,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rails/request.js@npm:^0.0.6":
+  version: 0.0.6
+  resolution: "@rails/request.js@npm:0.0.6"
+  checksum: 8a0d2c2dfdb74753350d175d6299b45f0b1d830ee93147387f5890dd27019b56e7997fd85e11da33bbf6baf91e8791a6f487a372e255a929403ab7470466b857
+  languageName: node
+  linkType: hard
+
 "@tootallnate/once@npm:2":
   version: 2.0.0
   resolution: "@tootallnate/once@npm:2.0.0"
@@ -138,6 +145,7 @@ __metadata:
     "@hotwired/stimulus": ^3.0.1
     "@hotwired/turbo-rails": ^7.1.3
     "@popperjs/core": ^2.11.5
+    "@rails/request.js": ^0.0.6
     bootstrap: ^5.1.3
     bootstrap-icons: ^1.8.3
     esbuild: ^0.14.48

@@ -63,6 +63,7 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
   gem 'ffaker', '~> 2.21'
+  gem 'bullet', '~> 7.0'
 end
 
 group :test do

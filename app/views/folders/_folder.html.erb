@@ -1,0 +1,11 @@
+<%= turbo_frame_tag folder do %>
+  <section class="mb-4">
+    <h2><%= link_to folder.title, folder_path(folder), data: {turbo_frame: '_top'} %></h2>
+
+    <p><%= folder.description %></p>
+    
+    <%= link_to 'Edit', edit_folder_path(folder), class: 'btn btn-primary' %>
+    <%= link_to 'Delete', folder_path(folder), class: 'btn btn-danger',
+      data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+  </section>
+<% end %>

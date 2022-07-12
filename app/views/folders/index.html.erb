@@ -1,0 +1,8 @@
+<h1>Folders</h1>
+
+<%= link_to 'Add folder', new_folder_path, class: 'btn btn-primary',
+ data: {turbo_frame: dom_id(Folder.new) } %>
+
+<%= turbo_frame_tag Folder.new %>
+
+<%= render @folders %>
