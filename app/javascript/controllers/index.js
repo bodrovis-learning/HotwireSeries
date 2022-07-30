@@ -9,3 +9,6 @@ application.register("images", ImagesController)
 
 import ToastController from "./toast_controller"
 application.register("toast", ToastController)
+
+import SortableController from "./sortable_controller"
+application.register("sortable", SortableController)

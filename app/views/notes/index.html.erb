@@ -1,0 +1,10 @@
+<h1>Notes</h1>
+
+<%= link_to 'New note', new_note_path, class: 'btn btn-primary',
+  data: {turbo_frame: dom_id(Note.new) } %>
+
+<%= turbo_frame_tag Note.new %>
+
+<%= tag.article id: 'notes', data: {controller: 'sortable'} do %>
+  <%= render @notes %>
+<% end %>

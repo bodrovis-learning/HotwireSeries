@@ -10,7 +10,9 @@
 #   Image.create title: FFaker::CheesyLingo.word, url: FFaker::Image.url
 # end
 
-5.times do
-  Folder.create title: FFaker::CheesyLingo.word,
-                description: FFaker::Lorem.sentence
-end
+# 5.times do
+#   Folder.create title: FFaker::CheesyLingo.word,
+#                 description: FFaker::Lorem.sentence
+# end
+
+User.create name: 'fake'

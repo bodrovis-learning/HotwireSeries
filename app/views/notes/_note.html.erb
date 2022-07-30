@@ -1,0 +1,17 @@
+<%= turbo_frame_tag note, class: 'item' do %>
+  <section class="mt-3">
+    <h2>
+      <i class="bi bi-arrows-move js-sort-handle fs-3"></i>
+      <%= note.title %>
+    </h2>
+
+    <p class="lead">
+      <span class="badge bg-info" data-sortable-target="position">
+        <%= note.position %>
+      </span>
+      <%= note.description %>
+    </p>
+
+    <%= link_to 'Edit', edit_note_path(note), class: 'btn btn-secondary' %>
+  </section>
+<% end %>
