@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class NotesController < ApplicationController
   def index
     @notes = current_user.notes.order position: :asc
@@ -11,7 +13,7 @@ class NotesController < ApplicationController
   def create
     @note = current_user.notes.build note_params
     if @note.save
-      flash.now[:success] = 'Note created!'
+      flash.now[:success] = _('Note created!')
     else
       render :new
     end
@@ -24,7 +26,7 @@ class NotesController < ApplicationController
   def update
     @note = current_user.notes.find params[:id]
     if @note.update note_params
-      flash.now[:success] = 'Note updated!'
+      flash.now[:success] = _('Note updated!')
     else
       render :edit
     end

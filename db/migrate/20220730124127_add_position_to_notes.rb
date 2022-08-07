@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddPositionToNotes < ActiveRecord::Migration[7.0]
   def up
     add_column :notes, :position, :integer, null: false, default: 1
