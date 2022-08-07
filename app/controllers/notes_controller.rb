@@ -13,7 +13,7 @@ class NotesController < ApplicationController
   def create
     @note = current_user.notes.build note_params
     if @note.save
-      flash.now[:success] = _('Note created!')
+      flash.now[:success] = 'Note created!'
     else
       render :new
     end
@@ -26,7 +26,7 @@ class NotesController < ApplicationController
   def update
     @note = current_user.notes.find params[:id]
     if @note.update note_params
-      flash.now[:success] = _('Note updated!')
+      flash.now[:success] = 'Note updated!'
     else
       render :edit
     end

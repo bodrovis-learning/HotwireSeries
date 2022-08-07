@@ -14,7 +14,7 @@ class FoldersController < ApplicationController
   def create
     @folder = Folder.new folder_params
     if @folder.save
-      flash.now[:success] = _('Folder created!')
+      flash.now[:success] = 'Folder created!'
     else
       render :new
     end
@@ -35,7 +35,7 @@ class FoldersController < ApplicationController
   def destroy
     @folder.destroy
     respond_to do |format|
-      format.turbo_stream { flash.now[:success] = _('Folder deleted!') }
+      format.turbo_stream { flash.now[:success] = 'Folder deleted!' }
     end
   end
 
