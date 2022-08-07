@@ -12,3 +12,6 @@ application.register("toast", ToastController)
 
 import SortableController from "./sortable_controller"
 application.register("sortable", SortableController)
+
+import BookmarksController from "./bookmarks_controller"
+application.register("bookmarks", BookmarksController)

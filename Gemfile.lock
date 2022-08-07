@@ -70,6 +70,9 @@ GEM
       activerecord (>= 4.2)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    after_commit_everywhere (1.2.2)
+      activerecord (>= 4.2)
+      activesupport
     ast (2.4.2)
     bindex (0.8.1)
     bootsnap (1.13.0)
@@ -256,6 +259,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_list (~> 1.0)
+  after_commit_everywhere (~> 1)
   bootsnap
   bullet (~> 7.0)
   capybara

@@ -1,0 +1,10 @@
+<%= tag.section data: {'bookmarks-target': 'bookmark'} do %>
+  <%= bookmark.title %>: <%= bookmark.url %>
+
+  <% if current_user.admin? %>
+    <div class="js-actions">
+      <%= link_to 'Edit', '#', class: 'btn btn-secondary' %>
+    </div>
+  <% end %>
+  <hr>
+<% end %>

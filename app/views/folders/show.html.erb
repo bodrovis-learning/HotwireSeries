@@ -3,3 +3,18 @@
 <p><%= @folder.description %></p>
 
 <%= link_to 'back to all folders', folders_path, class: 'btn btn-secondary' %>
+
+<%= link_to 'Add bookmark', new_folder_bookmark_path(folder_id: @folder),
+  class: 'btn btn-primary',
+  data: {turbo_frame: dom_id(Bookmark.new) } %>
+
+<%= turbo_stream_from(@folder, :bookmarks) %>
+
+<div class="my-4">
+  <%= turbo_frame_tag Bookmark.new %>
+</div>
+
+<%= turbo_frame_tag 'bookmarks',
+  data: {controller: 'bookmarks', 'bookmarks-admin-value': current_user.admin?} do %>
+  <%= render @bookmarks %>
+<% end %>
