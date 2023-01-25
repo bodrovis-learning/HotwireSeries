@@ -15,5 +15,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :rooms, only: %i[index show]
+
+  resources :messages, only: %i[create]
+
   root 'images#index'
 end

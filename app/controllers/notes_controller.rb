@@ -10,6 +10,10 @@ class NotesController < ApplicationController
     @note.position = current_user.notes.count + 1
   end
 
+  def edit
+    @note = current_user.notes.find params[:id]
+  end
+
   def create
     @note = current_user.notes.build note_params
     if @note.save
@@ -17,10 +21,6 @@ class NotesController < ApplicationController
     else
       render :new
     end
-  end
-
-  def edit
-    @note = current_user.notes.find params[:id]
   end
 
   def update

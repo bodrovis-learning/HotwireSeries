@@ -17,4 +17,10 @@
 #                 description: FFaker::Lorem.sentence
 # end
 
-User.create name: 'fake'
+# 10.times do
+#   User.create name: FFaker::CheesyLingo.word
+# end
+
+# 5.times do |i|
+#   Room.create title: "#{FFaker::CheesyLingo.word} #{i + 1}"
+# end

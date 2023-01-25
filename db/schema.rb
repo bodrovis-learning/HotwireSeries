@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_07_144251) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_25_191712) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -37,6 +37,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_07_144251) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.bigint "room_id", null: false
+    t.bigint "user_id", null: false
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_messages_on_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "notes", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -48,6 +58,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_07_144251) do
     t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
+  create_table "room_members", force: :cascade do |t|
+    t.bigint "room_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id", "user_id"], name: "index_room_members_on_room_id_and_user_id", unique: true
+    t.index ["room_id"], name: "index_room_members_on_room_id"
+    t.index ["user_id"], name: "index_room_members_on_user_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -55,5 +81,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_07_144251) do
   end
 
   add_foreign_key "bookmarks", "folders"
+  add_foreign_key "messages", "rooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "notes", "users"
+  add_foreign_key "room_members", "rooms"
+  add_foreign_key "room_members", "users"
 end

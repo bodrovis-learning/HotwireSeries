@@ -1,0 +1,6 @@
+<% if !message.new_record? %>
+  <small><%= l message.created_at, format: :long %></small>
+  <p><%= message.body %></p>
+  written by <%= message.user.name %>
+  <hr/>
+<% end %>
