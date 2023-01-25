@@ -7,9 +7,15 @@ class FoldersController < ApplicationController
     @folders = Folder.order created_at: :desc
   end
 
+  def show
+    @bookmarks = @folder.bookmarks.order created_at: :desc
+  end
+
   def new
     @folder = Folder.new
   end
+
+  def edit; end
 
   def create
     @folder = Folder.new folder_params
@@ -19,12 +25,6 @@ class FoldersController < ApplicationController
       render :new
     end
   end
-
-  def show
-    @bookmarks = @folder.bookmarks.order created_at: :desc
-  end
-
-  def edit; end
 
   def update
     if @folder.update folder_params
