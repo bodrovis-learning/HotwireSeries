@@ -1,0 +1,4 @@
+<%# turbo_stream.append "messages",
+  partial: 'messages/message_frame', locals: {message: message} %>
+<%= turbo_stream.append "messages",
+  partial: 'messages/message', locals: {message: message} %>

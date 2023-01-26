@@ -1,0 +1,17 @@
+<%= turbo_frame_tag message do %>
+  <%= tag.section data: {user: message.user.id,
+    'messages-target': 'message'} do %>
+    <small><%= l message.created_at, format: :long %></small><br>
+    <small><%= l message.updated_at, format: :long %></small>
+
+    <p><%= message.body %></p>
+    written by <%= message.user.name %>
+
+    <%# if message.user == current_user %>
+    <div class="js-actions d-none">
+      <%= link_to 'Edit', message_path(message),
+        class: 'btn btn-secondary', data: {turbo_method: :patch} %>
+    </div>
+    <%# end %>
+  <% end %>
+<% end %>

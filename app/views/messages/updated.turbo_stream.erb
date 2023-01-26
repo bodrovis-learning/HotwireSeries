@@ -1,0 +1,4 @@
+<%# turbo_stream.replace message,
+  partial: 'messages/message_frame', locals: {message: message} %>
+<%= turbo_stream.replace message,
+  partial: 'messages/message', locals: {message: message} %>
