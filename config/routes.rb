@@ -17,7 +17,9 @@ Rails.application.routes.draw do
 
   resources :rooms, only: %i[index show]
 
-  resources :messages, only: %i[create]
+  resources :messages, only: %i[create show update] do
+    resource :likes, only: %i[create destroy]
+  end
 
   root 'images#index'
 end

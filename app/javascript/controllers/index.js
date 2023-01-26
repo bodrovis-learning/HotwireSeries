@@ -15,3 +15,9 @@ application.register("sortable", SortableController)
 
 import BookmarksController from "./bookmarks_controller"
 application.register("bookmarks", BookmarksController)
+
+import MessagesController from "./messages_controller"
+application.register("messages", MessagesController)
+
+import LikesController from "./likes_controller"
+application.register("likes", LikesController)

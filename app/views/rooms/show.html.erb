@@ -2,8 +2,23 @@
 
 <%= turbo_stream_from "room_#{@room.id}", channel: RoomChannel, data: {room_id: @room.id} %>
 
-<%= turbo_frame_tag 'messages' do %>
-  <%= render @room.messages.includes(:user) %>
+<p>Current user: <%= current_user.inspect %></p>
+
+<%= turbo_frame_tag 'messages',
+  data: {controller: 'messages', 'messages-user-value': current_user.id} do %>
+  <%# render partial: 'messages/message_frame', collection: @room.messages, as: :message %>
+  <% @room.messages.includes(:user).each do |msg| %>
+    <article>
+      <%= render msg %>
+
+      <%= tag.section data: {controller: 'likes', 'likes-messages-outlet': '#messages',
+        'likes-liked-value': current_user.liked?(msg)} do %>
+        <%= render 'messages/message_likes', message: msg %>
+      <% end %>
+
+      <hr>
+    </article>
+  <% end %>
 <% end %>
 
 <%= render 'messages/form', message: @message %>

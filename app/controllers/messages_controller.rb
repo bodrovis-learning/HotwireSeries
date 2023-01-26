@@ -8,6 +8,18 @@ class MessagesController < ApplicationController
     end
   end
 
+  def show
+    @message = Message.find_by id: params[:id]
+    render partial: 'message', locals: { message: @message }
+  end
+
+  def update
+    @message = Message.find_by id: params[:id]
+    Messages::UpdateService.call @message
+  end
+
+  private
+
   def message_params
     params.require(:message).permit(:room_id, :body)
   end
