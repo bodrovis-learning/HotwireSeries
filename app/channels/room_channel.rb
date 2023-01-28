@@ -7,6 +7,7 @@ class RoomChannel < ApplicationCable::Channel
 
   def subscribed
     stream_name = verified_stream_name_from_params
+    # TODO: check that the stream name contains that same room_id as set in the params
     if stream_name.present? && subscription_allowed?
       stream_from stream_name
     else
