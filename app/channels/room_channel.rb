@@ -7,16 +7,25 @@ class RoomChannel < ApplicationCable::Channel
 
   def subscribed
     stream_name = verified_stream_name_from_params
-    # TODO: check that the stream name contains that same room_id as set in the params
-    if stream_name.present? && subscription_allowed?
+    
+    if subscription_allowed_to?(stream_name.to_s)
       stream_from stream_name
     else
       reject
     end
   end
 
-  def subscription_allowed?
+  private
+
+  def subscription_allowed_to?(stream_name)
+    # Our streams are named "room_N" where N is the room ID
+    # Extract the room ID:
+    room_from_stream = stream_name.delete_prefix("room_")
+
+    return false unless room_from_stream == params[:room_id]
+
     room = Room.find_by id: params[:room_id]
+
     current_user&.member_of?(room)
   end
 end
